@@ -1,0 +1,53 @@
+
+//Media Querys
+
+@mixin sizes($width, $height)
+{
+    width: $width;
+    height: $height;
+}
+
+
+.mapa {
+    @include sizes(100%,100% )
+}
+
+form#contacto label {
+    color: $colorPrincipal;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+
+
+@media only screen and (max-width:500px) {
+    /* Que en mobile el texto sea mas chico */
+    .navMenu a {
+        font-size: 15px;
+    }
+
+    .navMenu {
+        background-color: lightgrey;
+    }
+
+    .sliderPpal, .nosotros{
+        display: none;
+    }
+
+    .mapa {
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width:501px) and (max-width:999px) {
+    .mapa {
+        height: 400px;
+    }
+ }
+
+ @media only screen and (min-width:501px) and (max-width:768px) {
+    .nosotros{
+        display: none;
+    }
+ }

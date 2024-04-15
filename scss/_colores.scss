@@ -1,0 +1,17 @@
+/* Colores */
+
+$colorPrincipal: #A63232;
+
+$colorBlanco: #FFFFFF;
+
+$colorNegro: #000000;
+
+$colorRojo: #FF0000;
+
+$colorGris: gray;
+$colorGrisOscuro: #1d1d1d;
+
+$gradPpal: linear-gradient(to right, $colorRojo, $colorNegro);
+$gradPpalRev: linear-gradient(to right, $colorNegro,$colorRojo);
+
+$gradSec: linear-gradient(to right, $colorGrisOscuro, $colorRojo);

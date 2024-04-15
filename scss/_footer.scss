@@ -1,0 +1,15 @@
+// Mixin para tamaño de iconos socials
+@mixin sizes($width, $height)
+{
+    width: $width;
+    height: $height;
+}
+
+footer .socials {
+    @include sizes(30px, 30px);
+}
+
+footer p {
+    font-size: 0.8rem;
+    font-weight: 400;
+}

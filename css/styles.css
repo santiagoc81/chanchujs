@@ -1,0 +1,305 @@
+@charset "UTF-8";
+/* Imports */
+/* Colores */
+/* CSS De todo el header*/
+.logo {
+  width: 150px; /* establezco el ancho del logo */
+}
+
+.navMenu {
+  display: flex;
+  z-index: 100;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 30px;
+}
+.navMenu a {
+  color: #1d1d1d;
+}
+.navMenu a:hover {
+  color: #A63232;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+h1.titulo {
+  color: #A63232; /* Color del Titulo cuando es H1 */
+}
+
+footer .socials {
+  width: 30px;
+  height: 30px;
+}
+
+footer p {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.botonPpal, .boton-servicios {
+  background-image: linear-gradient(to right, #FF0000, #000000);
+}
+.botonPpal:hover, .boton-servicios:hover {
+  background-image: linear-gradient(to right, #000000, #FF0000);
+  transform: scale(1.2, 1.2);
+}
+
+.boton-servicios {
+  background-image: linear-gradient(to right, #1d1d1d, #FF0000);
+}
+
+@keyframes efectoBordeLoco {
+  0% {
+    border: #000000 solid 3px;
+  }
+  10% {
+    border: gray solid 3px;
+  }
+  20% {
+    border: #FF0000 solid 3px;
+  }
+  30% {
+    border: #A63232 solid 3px;
+  }
+  40% {
+    border: #000000 solid 3px;
+  }
+  50% {
+    border: gray solid 3px;
+  }
+  60% {
+    border: #FF0000 solid 3px;
+  }
+  70% {
+    border: #A63232 solid 3px;
+  }
+  80% {
+    border: #000000 solid 3px;
+  }
+  90% {
+    border: gray solid 3px;
+  }
+  100% {
+    border: #FF0000 solid 3px;
+  }
+}
+.cajaAnimada {
+  animation-name: efectoBordeLoco;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+
+@keyframes efectoLink {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #FF0000;
+  }
+}
+.linkAnimado {
+  animation-name: efectoLink;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
+/* CSS Generales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Con esto hacemos que cada tamaño de caja de contenido ya incluya podding y margin */
+}
+
+ul {
+  list-style: none; /* borro los bullets */
+}
+
+/* CSS para pagina index */
+.cajasDestacadas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cajaItem {
+  border: 3px black solid;
+  display: flex;
+  width: 350px;
+  padding: 25px;
+  margin: 15px;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contactoPresupuesto {
+  margin: 20px 0px;
+  background-color: #A63232;
+  color: #FFFFFF;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contactoPresupuesto a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.contactoPresupuesto a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* CSS para pagina services */
+.nuestrosServicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicio {
+  border: 1px #000000 solid;
+  width: 400px;
+  padding: 30px;
+  margin: 15px;
+  position: relative;
+}
+
+.servicioMasPedido {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  padding: 10px;
+  background-color: #FF0000;
+  box-shadow: 2px 2px 2px #000000;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+
+.tituloPrincipal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.espaciado {
+  margin: 10px 0px;
+}
+
+.sliderPrincipal {
+  display: flex;
+}
+
+.slideItem {
+  display: flex;
+  position: relative;
+}
+
+.sliderPrincipal img {
+  max-width: 100%;
+}
+
+.iconColor {
+  color: #A63232;
+}
+
+.logosEmpresas {
+  width: 140px;
+  transition: all 0.2s;
+}
+
+.logosEmpresas:hover {
+  width: 200px;
+}
+
+.nosotros {
+  width: 350px;
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+.mapa {
+  width: 100%;
+  height: 100%;
+}
+
+form#contacto label {
+  color: #A63232;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 500px) {
+  /* Que en mobile el texto sea mas chico */
+  .navMenu a {
+    font-size: 15px;
+  }
+  .navMenu {
+    background-color: lightgrey;
+  }
+  .sliderPpal, .nosotros {
+    display: none;
+  }
+  .mapa {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 999px) {
+  .mapa {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+  .nosotros {
+    display: none;
+  }
+}
+.mapa {
+  width: 100%;
+  height: 100%;
+}
+
+form#contacto label {
+  color: #A63232;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 500px) {
+  /* Que en mobile el texto sea mas chico */
+  .navMenu a {
+    font-size: 15px;
+  }
+  .navMenu {
+    background-color: lightgrey;
+  }
+  .sliderPpal, .nosotros {
+    display: none;
+  }
+  .mapa {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 999px) {
+  .mapa {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+  .nosotros {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

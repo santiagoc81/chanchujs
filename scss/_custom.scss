@@ -1,0 +1,130 @@
+/* CSS Generales */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box; /* Con esto hacemos que cada tamaño de caja de contenido ya incluya podding y margin */
+}
+
+ul { 
+    list-style: none; /* borro los bullets */
+}
+
+/* CSS para pagina index */
+
+.cajasDestacadas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+
+.cajaItem {
+    border: 3px black solid;
+    display: flex;
+    width: 350px;
+    padding: 25px;
+    margin: 15px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    
+}
+
+.contactoPresupuesto {
+
+    margin: 20px 0px;
+    background-color: $colorPrincipal;
+    color: #FFFFFF;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+
+}
+.contactoPresupuesto a{
+    text-decoration: none;
+    color: $colorBlanco;
+}
+
+.contactoPresupuesto a:hover{
+    text-decoration: none;
+    color: $colorNegro;
+}
+
+
+/* CSS para pagina services */
+
+.nuestrosServicios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.servicio {
+    border: 1px $colorNegro solid;
+    width: 400px;
+    padding: 30px;
+    margin: 15px;
+    position: relative;
+    
+    
+}
+.servicioMasPedido {
+    position: absolute;
+    top:2px;
+    right:5px;
+    padding: 10px;
+    background-color: $colorRojo;
+    box-shadow: 2px 2px 2px $colorNegro;
+    border-radius: 50%;
+    color: $colorBlanco;
+
+}
+
+
+.tituloPrincipal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.espaciado
+{
+    margin: 10px 0px;
+}
+
+.sliderPrincipal {
+    display: flex;
+}
+
+.slideItem {
+    display: flex;
+    position: relative;
+}
+
+.sliderPrincipal img{
+    max-width: 100%;
+}
+
+.iconColor {
+    color: #A63232;
+}
+
+.logosEmpresas {
+    width: 140px;
+    transition: all 0.2s;
+}
+
+.logosEmpresas:hover{
+
+    width: 200px;
+
+}
+
+.nosotros
+{
+    width: 350px;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+
+}

@@ -1,0 +1,18 @@
+// Colores de botones
+
+.botonPpal{
+    background-image: $gradPpal;
+
+    &:hover{
+        background-image: $gradPpalRev;
+        transform: scale(1.2,1.2);
+    }
+
+}
+
+.boton-servicios{
+    @extend .botonPpal;
+    background-image: $gradSec;
+
+}
+

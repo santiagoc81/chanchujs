@@ -1,0 +1,41 @@
+@keyframes efectoBordeLoco{
+    0% {border: $colorNegro solid 3px;}
+    10% {border: $colorGris solid 3px;}
+    20% {border: $colorRojo solid 3px;}
+    30% {border: $colorPrincipal solid 3px;}
+    40% {border: $colorNegro solid 3px;}
+    50% {border: $colorGris solid 3px;}
+    60% {border: $colorRojo solid 3px;}
+    70% {border: $colorPrincipal solid 3px;}
+    80% {border: $colorNegro solid 3px;}
+    90% {border: $colorGris solid 3px;}
+    100% {border: $colorRojo solid 3px;}
+}
+
+.cajaAnimada {
+
+    animation-name: efectoBordeLoco; //Nombre de la animacion
+    animation-iteration-count: infinite; // Es que sae un loop infinito
+    animation-timing-function: ease-in; // Definimos que arranca suave
+    animation-duration: 3s; // lo que dura en reocrrer toda la animacion
+    animation-delay: 1s; // Esperar para que comience
+}
+
+@keyframes efectoLink{
+    from {
+        color:$colorBlanco;
+    }
+    to {
+        color: $colorRojo;
+    }
+}
+
+.linkAnimado {
+
+    animation-name: efectoLink; //Nombre de la animacion
+    animation-iteration-count: infinite; // Es que sae un loop infinito
+    animation-timing-function: ease-in; // Definimos que arranca suave
+    animation-duration: 1s; // lo que dura en reocrrer toda la animacion
+    animation-delay: 0s; // Esperar para que comience
+}
+

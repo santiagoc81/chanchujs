@@ -1,16 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <!-- Mobile First -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chanchustudio :: Cotizador de Seguro</title>
+    <meta name="description" content="servicios profesionales hosting webpages diseño">
+    <meta name="keywords" content="diseno web, hosting, servicios profesionales, consultoria, logo, diseño grafico">
+    <title>chanchustudio :: Soluciones para su negocio</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
     <!-- Link al CDN de BootStrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Link al CDN de FontAwesome -->
     <script src="https://kit.fontawesome.com/35180ca2be.js" crossorigin="anonymous"></script>
+    <!-- Link al CDN de Aninmate.CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Link al CDN de AOS.CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
 </head>
+
 <body>
-    
+    <header>
+        <section class="navMenu">
+            <a href="./index.html">
+                <img class="logo animate__animated animate__bounceInLeft" src="./img/logo.png" alt="Logo Chanchustudio">
+            </a>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="./pages/presupuesto.html">Pedir Presupuesto</a>              
+                    </div>
+                </div>
+                </div>
+            </nav>
+        </section>
+        <!-- Armo una sección full-width con padding  para un slider-->
+        <section class="container-fluid p-0 sliderPpal">
+            <div class="row m-0">
+                <div class="col-12 ">
+                    <img class="img-fluid animate__animated animate__fadeIn" src="./img/slide1.png"a- alt="Banner principal">
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+         <!-- Section principal-->
+         <!-- Estoy usando Bootstrap para hacer 3 columnas (una abajo de otra) con texto centrado-->
+        <section class="container">
+            <div class="row">
+                <div class="col-12 text-center"><h1 class="titulo espaciado">Somos Chanchustudio</h1></div>
+                <div class="col-12 text-center"><h2 class="espaciado">Estudio de diseño y soluciones para tu empresa</h2></div>
+                <div class="col-12 text-center"><p class="espaciado" >Tenemos profesionales disponibles para ayudarte a cambiar el rumbo de tu negocio y explotar el potencial del mercado online!</p></div>
+            </div>
+        </section>
+        <!-- Estoy usando flexbox para ordenar las cajas -->
+        <section class="cajasDestacadas">
+            <div class="cajaItem cajaAnimada" data-aos="flip-left">
+                <p><i class=" iconColor fa-regular fa-pen-to-square fa-2xl"></i></p>
+                <h2>Que Hacemos</h2>
+                <p>En chanshustudio nos dedicamos a proveer soluciones integrales para crear el sitio web profesional que tu negocio necesita.</p>
+            </div>
+            <div class="cajaItem cajaAnimada" data-aos="flip-left">
+                <p><i class="iconColor fa-regular fa-folder-closed fa-2xl" ></i></p>
+                <h2>Servicios</h2>
+                <p>Con el apoyo de nuestros profesionales, creamos o renovamos tu identidad y diseñamos tu sitio web siguiendo los máximos estandares de la industria.</p>
+            </div>
+            <div class="cajaItem cajaAnimada" data-aos="flip-left">
+                <p><i class="iconColor fa-regular fa-face-smile fa-2xl"></i></p>
+                <h2>Clientes</h2>    
+                <p>Nuestra red de clientas incluye primeras marcas de tecnología que pueden dar eco del servicio de primera calidad que entregamos en chanchustudio.</p>
+            </div>
+        </section>
+        <section class="contactoPresupuesto">
+            <h3>No dejes de pedir <a class="linkAnimado" href="./pages/presupuesto.html">tu presupuesto</a> para tu proyecto</h3>
+        </section>
+    </main>
+    <!-- Estoy usando bootstrap para el footer -->
+    <footer>
+        <section class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4 text-center mb-1">
+                    <h3>Nuestras Redes</h3>
+                    <a href="https://www.facebook.com"><img class="socials" src="./img/logo-facebook.png" alt="Logo Facebook"></a>
+                    <a href="https://www.instagram.com"><img class="socials" src="./img/logo-ig.png" alt="Logo Instagram"></a>
+                    <a href="https://www.x.com"><img class="socials" src="./img/logo-x.png" alt="Logo Twitter"></a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 text-center mb-1">
+                    <h3>Visitanos</h3>
+                    <p> Estamos en Saavedra! Te esperamos</p>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                    <p> Copyright 2024. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        AOS.init();
+    </script>
+
 </body>
+
 </html>
