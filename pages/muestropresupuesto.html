@@ -26,12 +26,7 @@
     <!-- Link al CDN de AOS.CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Limpio sl sesionStorage antes de arrancar el formulario
-            sessionStorage.clear();
-        });
-    </script>
+    
 </head>
 
 <body>
@@ -71,49 +66,7 @@
             <div class="row">
                 <div class="col-md-8 col-xs-12 col-sm-12">
                     <h1 class="titulo">Presupuesto</h1>
-                    <form action="./muestropresupuesto.html">
-                        <div class="form-group">
-                            <label for="servicio">Seleccione Servicio</label>
-                            <select id="servicio" class="form-control mt-2" id="servicio">
-                                <option disabled value="" selected hidden>Seleccione...</option>
-                                <option value="WEB">WebPage</option>
-                                <option value="HOSTING">Hosting</option>
-                            </select>
-                        </div>
-                        <div id="webpage" class="oculto">
-                            <div class="form-group mt-2">
-                                <label for="paginas">Cantidad de paginas</label>
-                                <select class="form-control" id="paginas">
-                                    <option disabled value="" selected hidden>Seleccione...</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="animaciones">Requiere Animaciones?</label>
-                                <select class="form-control" id="animaciones">
-                                    <option disabled value="" selected hidden>Seleccione...</option>
-                                    <option value="SI">Si</option>
-                                    <option value="NO">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div id="hosting" class="oculto">
-                            <div class="form-group mt-2">
-                                <label for="emails">Cantidad de emails</label>
-                                <select class="form-control mt-4" id="emails">
-                                    <option disabled value="" selected hidden>Seleccione...</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn botonPpal text-white mt-4">Calcular Presupuesto</button>
-                    </form>
+                    <div id="presupuesto"></div>
                 </div>
             </div>
         </section>
@@ -148,7 +101,7 @@
     <script>
         AOS.init();
     </script>
-    <script src="../js/scripts.js"></script>
+    <script src="../js/scriptMuestroPresu.js"></script>
 </body>
 
 </html>

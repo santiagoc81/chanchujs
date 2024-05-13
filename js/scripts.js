@@ -1,88 +1,134 @@
-//Inicializo las variables que voy a usar
-const servicios = ['Hosting', 'Web']
-// servicio:  via prompt para que el usuario elija entre Diseño web o hosting
-let servicio=''; // Scope Global, la ingresare via prompt
-// hostingSize: si elige hosting, le pedire el tamaño 
-let hostingSize ='';
-// emailCount: Si elige hosting, le pedire la cantidad de casillas de emails que necesita
-let emailCount ='';
-// pagesCount: Si es Webpage, le pedire la cantidad de paginas
-let pagesCount ='';
-// requireAnimations: Si es Webpage preguntaré si necesita animaciones
-let requireAnimations ='';
-//Inicializo en 0 el valor del presupuesto
-let valorTotal = 0;
+//Defino mi lista de precios:
+const precios = [
+    {name:'hosting', price: 50 },
+    {name:'email', price: 5},
+    {name:'web', price: 100 },
+    {name:'paginas', price: 10},
+    {name:'animaciones', price: 50}
+]
 
+// clase Presupuesto
+class Presupuesto {
+    constructor(service,tamanoHosting,numeroEmails,numeroPaginas,quiereAnimaciones,total) {
+    this.service = service;
+    this.numeroEmails = numeroEmails;
+    this.numeroPaginas = numeroPaginas;
+    this.quiereAnimaciones = quiereAnimaciones;
+    this.total = total;
+    }
+    // Funcion que envio lista de precios y va calculando el presupuesto
+    calculoTotal(precios) {
+    // Iniciar el total en 0
+    let total = 0;
 
-//Aviso que sucederá
-alert('Para solicitar tu presupuesto te solicitaremos: \n 1) El tipo de servicio. \n 2) Tamaño o cantidad de paginas');
-// Pido los datos
-pidoDatos(servicios)
-// Calculo el presupuesto
-calculoPresupuesto()
-// Lo imprimo en la consola
-imprimoPresupuesto()
-
-// Funciones
-function pidoDatos(servicios) {
-    
-    let totalServicios= servicios.length;
-    console.log(totalServicios);
-    textoPrompt = 'Ingrese el servicio a contratar (case sensitive): \n'
-    // Construyo el texto del prompt de forma dinamica
-    for (let i=0;i<totalServicios;i++){
-        textoPrompt= textoPrompt + "- " + servicios[i] + '\n'
+    // Sumar el costo de emails
+    if (this.numeroEmails > 0) {
+        total += precios.find(p => p.name === 'email').price * this.numeroEmails;
+    }
+    // Sumar el costo de web si se seleccionó el servicio web
+    if (this.service === 'web') {
+        total += precios.find(p => p.name === 'web').price;
+    }
+    // Sumar el costo de web si se seleccionó  el servicio web
+    if (this.service === 'hosting') {
+        total += precios.find(p => p.name === 'hosting').price;
+    }
+    // Sumar el costo de paginas
+    if (this.numeroPaginas > 0) {
+        total += precios.find(p => p.name === 'paginas').price * this.numeroPaginas;
+    }
+    // Sumar el costo de animaciones si se quieren animaciones
+    if (this.quiereAnimaciones) {
+        total += precios.find(p => p.name === 'animaciones').price;
     }
 
-    do {
-        servicio = prompt(textoPrompt)
+    // Guardar el total calculado en la propiedad total del objeto
+    this.total = total;
+
+}
+}
+
+const presupuesto = new Presupuesto();
+
+//DOM: cuando selecciono un servicio muestro las otras opciones del forumario
+document.getElementById('servicio').addEventListener('change', function() {
+    let elemento1 = document.getElementById('webpage');
+    if (this.value === 'WEB') {  
+        elemento1.classList.add('mostrar');
+        elemento1.classList.remove('oculto');
+        sessionStorage.setItem('servicio', 'WEB');
+        presupuesto.service='web';
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('servicio', 'WEB');
+        sessionStorage.setItem('total', presupuesto.total);
+    } else {
+        elemento1.classList.remove('mostrar');
+        elemento1.classList.add('oculto');
         
-    } while((servicio != servicios[0])&&(servicio != servicios[1]));
-    
-    console.log('El servicio seleccionado es: ' + servicio)
-    
-    switch (servicio) {
-        case 'Hosting':
-            hostingSize= parseInt(prompt("Ingrese la cantidad de sitios webs que desea almacenar "))
-            emailCount= parseInt(prompt("Ingrese la cantidad correos electronicos que necesita "))
-        break;
-        case 'Web':
-            pagesCount= parseInt(prompt("Ingrese la cantidad de paginas que necesita en su web "))
-            requireAnimations= confirm("Necesita tener animaciones? \n Si -> OK \n No -> Cancel")
-        break;
-    }
-    
-}
 
-function calculoPresupuesto() {
-
-    if (servicio == 'Hosting') {
-        valorTotal =(hostingSize,emailCount)=> (hostingSize * 50) + (emailCount *5)
-        presupuesto = { 
-            product: 'Hosting',
-            sites: hostingSize,
-            emails: emailCount,
-            total: "$" + valorTotal(hostingSize,emailCount)
-        }
     }
-    else
-    {
-        if (requireAnimations){ 
-            valorTotal = (pagesCount * 15) + 100
-        }
-        else{
-            valorTotal = (pagesCount * 15)
-        }
-        presupuesto = { 
-            product: 'Web',
-            pages: pagesCount,
-            animationsNeeded: requireAnimations,
-            total: "$" + valorTotal
-        }
-    }
-}
+    let elemento2 = document.getElementById('hosting');
+    if (this.value === 'HOSTING') {  
+        elemento2.classList.add('mostrar');
+        elemento2.classList.remove('oculto');
+        //actualizo presupuesto
+        presupuesto.service='hosting';
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('servicio', 'HOSTING');
+        sessionStorage.setItem('total', presupuesto.total);
 
-function imprimoPresupuesto(){
-    console.table(presupuesto)
-    alert('El detalle del presupuesto está en la consola :)')
-}
+    } else {
+        elemento2.classList.remove('mostrar');
+        elemento2.classList.add('oculto');
+    }
+});
+
+
+document.getElementById('paginas').addEventListener('change', function() {
+    let elemento = this.value;
+        presupuesto.numeroPaginas=elemento;
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('paginas', elemento);
+        sessionStorage.setItem('total', presupuesto.total);
+});
+
+document.getElementById('animaciones').addEventListener('change', function() {
+    let elemento = this.value;
+    if (this.value === 'SI') {
+        presupuesto.quiereAnimaciones= true;
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('animaciones', true);
+        sessionStorage.setItem('total', presupuesto.total);
+    }
+    else {
+        presupuesto.quiereAnimaciones= false;
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('animaciones', false);
+        sessionStorage.setItem('total', presupuesto.total);
+
+    }
+});
+
+document.getElementById('emails').addEventListener('change', function() {
+    let elemento = this.value;
+        presupuesto.numeroEmails=elemento;
+        presupuesto.calculoTotal(precios);
+        //guardo en localStorage
+        sessionStorage.setItem('emails', elemento);
+        sessionStorage.setItem('total', presupuesto.total);
+});
+
+
+
+
+
+
+
+
+
+

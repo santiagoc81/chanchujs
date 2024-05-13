@@ -128,3 +128,11 @@ ul {
     clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 
 }
+
+// Oculto clases
+.oculto {
+    display: none;
+}
+.mostrar {
+    display: block;
+}
