@@ -17,35 +17,38 @@ class Presupuesto {
     this.total = total;
     }
     // Funcion que envio lista de precios y va calculando el presupuesto
-    calculoTotal(precios) {
-    // Iniciar el total en 0
-    let total = 0;
+    async calculoTotal(precios) {
+        // Iniciar el total en 0
+        let total = 0;
 
-    // Sumar el costo de emails
-    if (this.numeroEmails > 0) {
-        total += precios.find(p => p.name === 'email').price * this.numeroEmails;
-    }
-    // Sumar el costo de web si se seleccionó el servicio web
-    if (this.service === 'web') {
-        total += precios.find(p => p.name === 'web').price;
-    }
-    // Sumar el costo de web si se seleccionó  el servicio web
-    if (this.service === 'hosting') {
-        total += precios.find(p => p.name === 'hosting').price;
-    }
-    // Sumar el costo de paginas
-    if (this.numeroPaginas > 0) {
-        total += precios.find(p => p.name === 'paginas').price * this.numeroPaginas;
-    }
-    // Sumar el costo de animaciones si se quieren animaciones
-    if (this.quiereAnimaciones) {
-        total += precios.find(p => p.name === 'animaciones').price;
-    }
+        // Sumar el costo de emails
+        if (this.numeroEmails > 0) {
+            total += precios.find(p => p.name === 'email').price * this.numeroEmails;
+        }
+        // Sumar el costo de web si se seleccionó el servicio web
+        if (this.service === 'web') {
+            total += precios.find(p => p.name === 'web').price;
+        }
+        // Sumar el costo de web si se seleccionó  el servicio web
+        if (this.service === 'hosting') {
+            total += precios.find(p => p.name === 'hosting').price;
+        }
+        // Sumar el costo de paginas
+        if (this.numeroPaginas > 0) {
+            total += precios.find(p => p.name === 'paginas').price * this.numeroPaginas;
+        }
+        // Sumar el costo de animaciones si se quieren animaciones
+        if (this.quiereAnimaciones) {
+            total += precios.find(p => p.name === 'animaciones').price;
+        }
 
-    // Guardar el total calculado en la propiedad total del objeto
-    this.total = total;
+        // Guardar el total calculado en la propiedad total del objeto
+        this.total = total;
 
-}
+        //actualizo DOM para previsualizar el presupuesto
+        actualizarPrevisualizacion(total);
+
+    }
 }
 
 const presupuesto = new Presupuesto();
@@ -97,7 +100,7 @@ document.getElementById('paginas').addEventListener('change', function() {
 
 document.getElementById('animaciones').addEventListener('change', function() {
     let elemento = this.value;
-    if (this.value === 'SI') {
+    if (elemento === 'SI') {
         presupuesto.quiereAnimaciones= true;
         presupuesto.calculoTotal(precios);
         //guardo en localStorage
@@ -123,6 +126,17 @@ document.getElementById('emails').addEventListener('change', function() {
         sessionStorage.setItem('total', presupuesto.total);
 });
 
+//Funcion para actualizar el valor de previsualizacion de presupuesto en la web
+function actualizarPrevisualizacion(total) {
+    // Seleccionar el div con el id previsualizacion
+    let divPrevisualizacion = document.getElementById('previsualizacion');
+    
+    // Seleccionar el span dentro del div
+    let span = divPrevisualizacion.querySelector('span');
+    
+    // Actualizar el contenido del span con la variable TOTAL
+    span.textContent = '$' + total;
+}
 
 
 
